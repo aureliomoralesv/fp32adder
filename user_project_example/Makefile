@@ -8,7 +8,7 @@ PDK=ihp-sg13g2
 CONFIG_FILE = $(PROJECT_DIR)/$(TOP)/config.json
 
 .PHONY: all
-all: librelane klayout-drc view_results
+all: librelane klayout-drc
 
 librelane: final/gds/$(TOP).gds
 .PHONY: librelane
