@@ -7,7 +7,14 @@
 
 ## Description of the project 
 
-The intended design to be integrated on a VLSI chip using IHP SG13G2 PDK is a basic 32-bit floating point adder based on IEEE 754. All the modules will be purely digital. According to the block diagram provided, the "reset" input asynchronously resets the entire design, then after signal "go" is active (from high to low), two 32-bit floating-point numbers are loaded into registers REG_A and REG_B in a serial fashion using one single input "inpab" (first REG_A, then REG_B, both from LSB to MSB), using output "shift" for 64 clock pulses, assuming that REG_A is greater than REG_B, and the CONTROL block, based on a Finite State Machine (FSM) Moore machine, sends an receives several signals to/from others block, and finally the result is generated on REG_C. REG_C is shifted out to the left via the output "reg_c" while "done" signal is high for 32 clock pulses.
+The intended design to be integrated on a VLSI chip using IHP SG13G2 PDK is a basic 32-bit floating point adder 
+based on IEEE 754. All the modules will be purely digital. According to the block diagram provided, the "reset" 
+input asynchronously resets the entire design, then after signal "go" is active (from high to low), two 32-bit 
+floating-point numbers are loaded into registers REG_A and REG_B in a serial fashion using one single input "inpab" 
+(first REG_A, then REG_B, both from LSB to MSB), using output "shift" for 64 clock pulses, assuming that REG_A is 
+greater than REG_B, and the CONTROL block, based on a Finite State Machine (FSM) Moore machine, sends an receives 
+several signals to/from others block, and finally the result is generated on REG_C. REG_C is shifted out to the 
+left via the output "reg_c" while "done" signal is high for 32 clock pulses.
 
 The design is specified using a behavioral and structural level description of a controller and datapath based 
 on the FSM+D model (Finite State Machine + Datapath), and using the Verilog hardware description language. 
