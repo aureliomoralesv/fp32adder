@@ -53,20 +53,20 @@ also performed using EDA Playground (https://www.edaplayground.com)
 
 ## Block diagram of the 32-bit floating point adder
 
-(img/fp32adder_serial_block_diagram.png)
+![architecture](img/fp32adder_serial_block_diagram.png)
 
 ## Simulations with Quartus Prime Lite Edition 25.1 
 
-(img/fp32adder_serial_simulation-1of2.png)
+![architecture](img/fp32adder_serial_simulation-1of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (1 of 2)
 
-(img/fp32adder_serial_simulation-2of2.png)
+![architecture](img/fp32adder_serial_simulation-2of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (2 of 2)
 
 ## View of 32-bit floating point adder with klayout before pad ring
 
-(img/fp32adder_serial_no_padring-2026-01-24.png)
+![architecture](img/fp32adder_serial_no_padring-2026-01-24.png)
 
 ## View of 32-bit floating point adder with klayout after pad ring
 
-(img/fp32adder_serial_with_padring-2026-01-24.png)
+![architecture](img/fp32adder_serial_with_padring-2026-01-24.png)
