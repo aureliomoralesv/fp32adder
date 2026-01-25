@@ -2,8 +2,12 @@
 
 # VLSI implementation of a simple 32-bit floating-point adder based on IEEE 754 using open-source software tools 
 
-| :exclamation: Important Note            |
-|-----------------------------------------|
+## Team members - Universidad Nacional de Ingeniería, Perú
+Ariel Amado Frias (student)
+Alejandro Estefano Zavaleta (student)
+Manuel Julián Pasión (student)
+Angel Edmanuel Aguado (student)
+Aurelio Federico Morales (mentor)
 
 ## Description of the project 
 
@@ -46,3 +50,23 @@ Automation (EDA) Quartus Prime Lite Edition 25.1, first for VHDL hardware descri
 Verilog hardware description language. The initial version of Verilog hardware description for Quartus was adapted to work 
 with Librelane. Initial simulations were performed with Vector Waveform File (VWF) from Quartus, and some testbenches were 
 also performed using EDA Playground (https://www.edaplayground.com)
+
+## Block diagram of the 32-bit floating point adder
+
+(img/fp32adder_serial_block_diagram.png)
+
+## Simulations with Quartus Prime Lite Edition 25.1 
+
+(img/fp32adder_serial_simulation-1of2.png)
+Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (1 of 2)
+
+(img/fp32adder_serial_simulation-2of2.png)
+Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (2 of 2)
+
+## View of 32-bit floating point adder with klayout before pad ring
+
+(img/fp32adder_serial_no_padring-2026-01-24.png)
+
+## View of 32-bit floating point adder with klayout after pad ring
+
+(img/fp32adder_serial_with_padring-2026-01-24.png)
