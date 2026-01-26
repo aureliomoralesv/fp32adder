@@ -157,5 +157,5 @@ Layout of the design without pad ring
 Layout of the design with pad ring
 ==================================
 
-![architecture](img/fp32adder_serial_with_padring-2026-01-24.png)
+![architecture](img/fp32adder_serial_with_padring_zoom-2026-01-26.png)
 
