@@ -38,13 +38,13 @@ Integration for mock tapeout
 
 ### Starting Your Project
 
-1. Create a new repository based on the unic-cass-wrapper template. Ensure your repo is public and includes a README.
+1. Create a new repository based on the unic-cass-wrapper template. Ensure that your repository is public and includes a README.
     - Follow [this link](https://github.com/unic-cass/unic-cass-wrapper/fork) to create your repository.
     - Clone the repository using:
         ```
         git clone <your GitHub repository URL>
         ```
-    - In this case, our Github repository is located at https://github.com/aureliomoralesv/fp32adder
+    - In this case, our Github repository (forked from UNIC-CASS) is located at https://github.com/aureliomoralesv/fp32adder
 
 2. Set up your local environment:
     ```
@@ -120,13 +120,14 @@ Integration for mock tapeout
         ```
         make view_results
         ```
-5. After you have gone through the flow successfully, update the [designs](https://github.com/aureliomoralesv/fp32adder/unic-cass-wrapper/Makefile) variable in the main Makefile of the main directory and run it as it shows in the next step. 
+5. After you have gone through the flow successfully, update the [designs](https://github.com/aureliomoralesv/fp32adder/blob/c4ebee0453694aacd2b4314958e86af9f2444644/Makefile) variable in the main Makefile of the main directory and run it as it shows in the next step. 
 
 6. Go to main directory and run the main Makefile:
-        ```
-        cd ..
-        make librelane
-        ```
+    ```
+    cd ..
+    make librelane
+    ```
+
     1. This command runs again the complete flow twice, first the "Classic" flow for the entire design without the pad ring, and then the "Chip" flow of the design and the integration with the pad ring
     2. If it passes DRC and LVS it is ready for the mock tapeout.
 
