@@ -33,8 +33,8 @@ Prerequisites
 The unic-cass-wrapper is designed to work inside the [uniccass-icdesign-tools](https://github.com/unic-cass/uniccass-icdesign-tools) Docker container.
 Make sure the container is properly installed and running before continuing with the initial integration of the design for the mock tapeout.
 
-Steps for Integration (mock tapeout)
-====================================
+Integration for mock tapeout
+============================
 
 ### Starting Your Project
 
@@ -133,7 +133,7 @@ Steps for Integration (mock tapeout)
 7. This main Makefile will be run in github every time you push a change. The action must pass in order to complete the mock tapeout process.
 
 GPIO Configuration
-=================
+==================
 
 ![architecture](img/unic-cass-mock-tapeout-pinlist.png)
 
@@ -141,8 +141,8 @@ Layout of the design without pad ring
 =====================================
 ![architecture](img/fp32adder_serial_no_padring-2026-01-24.png)
 
-Layout of the design integrated with pad ring
-=============================================
+Layout of the design with pad ring
+==================================
 
 ![architecture](img/fp32adder_serial_with_padring-2026-01-24.png)
 
