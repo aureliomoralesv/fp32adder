@@ -102,7 +102,7 @@ Steps for Integration (mock tapeout)
         make fp32adder VIEW_RESULTS=1
         ```
 4. Integrate modules into the user_project_wrapper:
-    1. Instantiate the design in [user_project_wrapper.v](https://github.com/aureliomoralesv/fp32adder/unic-cass-wrapper/unic_cass_wrapper/src/user_project_wrapper.sv). You must **only modify the module name and the instance name**. **Do not change the instance pin connections**, as they are required for correct integration with the unic_cass_wrapper.
+    1. Instantiate the design in [user_project_wrapper.v](https://github.com/aureliomoralesv/fp32adder/unic_cass_wrapper/src/user_project_wrapper.sv). You must **only modify the module name and the instance name**. **Do not change the instance pin connections**, as they are required for correct integration with the unic_cass_wrapper.
     2. Update the macros in the [config.json](https://github.com/aureliomoralesv/fp32adder/unic-cass-wrapper/config.json) file. Make sure to provide:
         - your design name (in this case, user_project_wrapper)
         - GDS path
