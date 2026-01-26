@@ -57,16 +57,16 @@ also performed using EDA Playground (https://www.edaplayground.com)
 
 ## Simulations with Quartus Prime Lite Edition 25.1 
 
-![architecture](img/fp32adder_serial_simulation-1of2.png)
+![architecture](docs/img/fp32adder_serial_simulation-1of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (1 of 2)
 
-![architecture](img/fp32adder_serial_simulation-2of2.png)
+![architecture](docs/img/fp32adder_serial_simulation-2of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (2 of 2)
 
 ## View of 32-bit floating point adder with klayout before pad ring
 
-![architecture](img/fp32adder_serial_no_padring-2026-01-24.png)
+![architecture](docs/img/fp32adder_serial_no_padring-2026-01-24.png)
 
 ## View of 32-bit floating point adder with klayout after pad ring
 
-![architecture](img/fp32adder_serial_with_padring-2026-01-24.png)
+![architecture](docs/img/fp32adder_serial_with_padring-2026-01-24.png)
