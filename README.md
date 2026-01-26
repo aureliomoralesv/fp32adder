@@ -3,11 +3,11 @@
 # VLSI implementation of a simple 32-bit floating-point adder based on IEEE 754 using open-source software tools 
 
 ## Team members - Universidad Nacional de Ingeniería, Perú
-Ariel Amado Frias (student)
-Alejandro Estefano Zavaleta (student)
-Manuel Julián Pasión (student)
-Angel Edmanuel Aguado (student)
-Aurelio Federico Morales (mentor)
+ - Ariel Amado Frias (student)
+ - Alejandro Estefano Zavaleta (student)
+ - Manuel Julián Pasión (student)
+ - Angel Edmanuel Aguado (student)
+ - Aurelio Morales-Villanueva (mentor)
 
 ## Description of the project 
 
@@ -53,7 +53,7 @@ also performed using EDA Playground (https://www.edaplayground.com)
 
 ## Block diagram of the 32-bit floating point adder
 
-![architecture](img/fp32adder_serial_block_diagram.png)
+![architecture](docs/img/fp32adder_serial_block_diagram.png)
 
 ## Simulations with Quartus Prime Lite Edition 25.1 
 
