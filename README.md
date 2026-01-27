@@ -63,10 +63,10 @@ Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (1 of
 ![architecture](docs/img/fp32adder_serial_simulation-2of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (2 of 2)
 
-## View of 32-bit floating point adder with klayout before pad ring
+## View of 32-bit floating point adder with Openroad before pad ring
 
 ![architecture](docs/img/fp32adder_serial_no_padring-2026-01-24.png)
 
-## View of 32-bit floating point adder with klayout after pad ring
+## View of 32-bit floating point adder with Openroad after pad ring
 
 ![architecture](docs/img/fp32adder_serial_with_padring-2026-01-24.png)
