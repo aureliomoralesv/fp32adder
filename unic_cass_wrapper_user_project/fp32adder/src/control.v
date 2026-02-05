@@ -74,28 +74,28 @@ always @(posedge clk or posedge reset) begin
                     est <= Ca;
                 end
             end
-			Ca: begin // load reg_a by shift-in to the left 32 bits from LSB
-				if (cnt2 < 31) begin
-					lda_reg  <= 1'b1; shift_reg <= 1'b1;
-					cnt2 <= cnt2 + 1'b1;
-					est  <= Ca;
-				end else begin
-					lda_reg  <= 1'b0; ldb_reg  <= 1'b1; shift_reg <= 1'b1;
-					cnt2 <= 5'b0;
-					est  <= Cb;
-				end
-			end
-			Cb: begin // load reg_b by shift-in to the left 32 bits from LSB
-				if (cnt2 < 31) begin
-					ldb_reg  <= 1'b1; shift_reg <= 1'b1;
-					cnt2 <= cnt2 + 1'b1;
-					est  <= Cb;
-				end else begin
-					ldb_reg  <= 1'b0; shift_reg <= 1'b0;
-					cnt2 <= 5'b0;
-					est  <= C;
-				end
-			end
+            Ca: begin // load reg_a by shift-in to the left 32 bits from LSB
+                if (cnt2 < 31) begin
+                    lda_reg  <= 1'b1; shift_reg <= 1'b1;
+                    cnt2 <= cnt2 + 1'b1;
+                    est  <= Ca;
+                end else begin
+                    lda_reg  <= 1'b0; ldb_reg  <= 1'b1; shift_reg <= 1'b1;
+                    cnt2 <= 5'b0;
+                    est  <= Cb;
+                end
+            end
+            Cb: begin // load reg_b by shift-in to the left 32 bits from LSB
+                if (cnt2 < 31) begin
+                    ldb_reg  <= 1'b1; shift_reg <= 1'b1;
+                    cnt2 <= cnt2 + 1'b1;
+                    est  <= Cb;
+                end else begin
+                    ldb_reg  <= 1'b0; shift_reg <= 1'b0;
+                    cnt2 <= 5'b0;
+                    est  <= C;
+                end
+            end
             C: begin // load reg_a and reg_b with operands
                 lda_reg <= 1'b0; ldb_reg <= 1'b0; lde_reg <= 1'b1; ldt_reg <= 1'b1;
                 est <= D;
@@ -141,16 +141,16 @@ always @(posedge clk or posedge reset) begin
             end
             I: begin // cy was '1', verify for overflow
                 shrm_reg <= 1'b0; ince_reg <= 1'b0;
-                if (expo != 8'hff) begin // alignment is OK
-                    ldc_reg <= 1'b1;
-                    est <= La;
-                end else begin // overflow
+                if (expo >= 8'hfe) begin // 2026-01-30 overflow will occur next clock, since expo will be incremented to xff
                     over_reg <= 1'b1;
                     est <= N;
+                end else begin // alignment is OK
+                    ldc_reg <= 1'b1;
+                    est <= La;
                 end
             end
             J: begin // cy = 0, suma[23] was 0, and suma != 0
-                if (expo == 8'h00) begin // if we decrement, then we will get underflow
+                if (expo <= 8'h01) begin // 2026-01-31 underflow will occur next clock, since expo will be decremented to x00
                     shlm_reg <= 1'b0; dece_reg <= 1'b0;
                     under_reg <= 1'b1;
                     est <= M;
