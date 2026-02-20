@@ -90,6 +90,9 @@ Also, inside the [docs](https://github.com/aureliomoralesv/fp32adder/tree/b76bce
 
 Report of the entire chip flow performed with Librelane
 =======================================================
+
+The following image shows all the folders generated when the chip flow was performed using the Librelane. The entire flow performs the logic synthesis and optimizations, mapping, place and route, timing constraints analysis using the Synopsys Design Constraint (*sdc) file, static timing analysis after place and route, design rule checking (DRC), and layout versus schematic (LVS) check for manufacturing and pad ring integration, where the error.log file shows no errors, while the warnings are related with no parasitics extraction found at corner of nom_fast_1p32V_m40C and nom_slow_1p08V_125C models.
+
 ![architecture](docs/img/fp32adder_serial_entire_chip_flow.png)
 Image that captures the entire chip flow performed with Librelane 
 
