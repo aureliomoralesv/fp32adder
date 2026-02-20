@@ -2,14 +2,32 @@
 
 # VLSI implementation of a simple 32-bit floating-point adder based on IEEE 754 using open-source software tools 
 
+> **Project Status:**
+>This repository represents an initial report for the project using the UNIC-CASS open-source software tools and the steps performed to the integration of the design to the pad ring for the mock tapeout. The contents of this report will evolve as we go further in the final integration of the design to the final pad ring for the final tape out.
+
 ## Team members - Universidad Nacional de Ingeniería, Perú
  - Ariel Amado Frias (student)
  - Alejandro Estefano Zavaleta (student)
  - Manuel Julián Pasión (student)
  - Angel Edmanuel Aguado (student)
- - Aurelio Morales-Villanueva (mentor)
+ - Aurelio Morales-Villanueva, PhD (mentor)
 
-## Description of the project 
+Table of contents
+=================
+
+1. [Description of the project](#description-of-the-project)
+2. [Block diagram of the 32-bit floating point adder](#block-diagram-of-the-32-bit-floating-point-adder)
+3. [Simulations with Quartus Prime Lite Edition 25.1](#simulations-with-quartus-prime-lite-edition-25.1)
+4. [Integration for mock tapeout](#integration-for-mock-tapeout)
+5. [Report of the entire chip flow performed with Librelane](#report-of-the-entire-chip-flow-performed-with-librelane)
+6. [Static Timing Analysis after Place and Route](#static-timing-analysis-after-place-and-route)
+7. [Report for Manufacturability](#report-for-manufacturability)
+8. [View of the design with Openroad before pad ring integration](#view-of-the-design-with-openroad-before-pad-ring-integration)
+9. [View of the design with Openroad after pad ring integration](#view-of-the-design-with-openroad-after-pad-ring-integration)
+
+
+Description of the project 
+==========================
 
 The intended design to be integrated on a VLSI chip using IHP SG13G2 PDK is a basic 32-bit floating point adder 
 based on IEEE 754. All the modules will be purely digital. According to the block diagram provided, the "reset" 
@@ -51,22 +69,46 @@ Verilog hardware description language. The initial version of Verilog hardware d
 with Librelane. Initial simulations were performed with Vector Waveform File (VWF) from Quartus, and some testbenches were 
 also performed using EDA Playground (https://www.edaplayground.com)
 
-## Block diagram of the 32-bit floating point adder
-
+Block diagram of the 32-bit floating point adder
+================================================
 ![architecture](docs/img/fp32adder_serial_block_diagram.png)
 
-## Simulations with Quartus Prime Lite Edition 25.1 
-
+Simulations with Quartus Prime Lite Edition 25.1 
+================================================
 ![architecture](docs/img/fp32adder_serial_simulation-1of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (1 of 2)
 
 ![architecture](docs/img/fp32adder_serial_simulation-2of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (2 of 2)
 
-## View of 32-bit floating point adder with Openroad before pad ring
+Integration for mock tapeout
+============================
 
+This part of the report was already included as part of the first milestone on 27/01/2026 in the README located at https://github.com/aureliomoralesv/fp32adder/docs folder. The initial steps for the integration of the digital design project to the pad ring is based on the UNIC-CASS Wrapper as an open-source chip integration template designed to standardize and simplify the integration of UNIC-CASS circuit designs for fabrication using the IHP open-source PDK. Please, read that report, which include all the steps and customization performed for the integration of the design to the initial pad ring for the mock tapeout.
+
+Also, inside the folder https://github.com/aureliomoralesv/fp32adder/docs there is the testbenches folder (https://github.com/aureliomoralesv/fp32adder/docs/testbenches) which includes several testbenches for the design in order to verify the behavioral results using different operands and using the Questa simulation tool included as part of the Quartus Prime Lite Edition 25.1. Also, in the testbenches folder, the Questa-step-by-step.pdf shows the steps to be performed for the functional simulation of the original design which was useful to detect possible bugs in the design.
+
+Report of the entire chip flow performed with Librelane
+=======================================================
+![architecture](docs/img/fp32adder_serial_entire_chip_flow.png)
+Image that captures the entire chip flow performed with Librelane 
+
+Static Timing Analysis after Place and Route
+============================================
+![architecture](docs/img/fp32adder_serial_openroad-stapostpnr.png)
+Static timing analysis with Openroad after Place & Route of the design
+
+Report for Manufacturability
+============================
+![architecture](docs/img/fp32adder_serial_misc-reportmanufacturability.png)
+Report for manufacturability (Antenna, DRC and LVS) of the design
+
+View of the design with Openroad before pad ring integration
+============================================================
 ![architecture](docs/img/fp32adder_serial_no_padring-2026-01-24.png)
+View of the design without pad ring integration using OpenRoad
 
-## View of 32-bit floating point adder with Openroad after pad ring
-
-![architecture](docs/img/fp32adder_serial_with_padring-2026-01-24.png)
+View of the design with Openroad after pad ring integration
+===========================================================
+![architecture](docs/img/fp32adder_serial_with_padring_zoom-2026-01-26.png)
+Zoom view of the placed design and integrated with the pad ring using OpenRoad

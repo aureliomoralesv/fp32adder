@@ -10,10 +10,10 @@ Table of contents
 
 1. [Overview](#overview)
 2. [Prerequisites](#prerequisites)
-2. [Integration for mock tapeout](#integration-for-mock-tapeout)
-3. [GPIO Configuration](#gpio-configuration)
-4. [Layout of the design without pad ring](#layout-of-the-design-without-pad-ring)
-5. [Layout of the design with pad ring](#layout-of-the-design-with-pad-ring)
+3. [Integration for mock tapeout](#integration-for-mock-tapeout)
+4. [GPIO Configuration](#gpio-configuration)
+5. [Layout of the design without pad ring](#layout-of-the-design-without-pad-ring)
+6. [Layout of the design with pad ring](#layout-of-the-design-with-pad-ring)
 
 Overview
 ========
