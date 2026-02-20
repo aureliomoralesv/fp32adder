@@ -110,7 +110,7 @@ Integration for mock tapeout
         - NL (netlist) path
         - LIB path
         - SPEF path
-        - Module instance with the desired position (the position is up to you)
+        - Module instance with the desired position (the position is up to you) 
     3. According to the instantiation of add_float.v (real top of hierarchy of the entire design), the following signals are connected to the following inputs or outputs:
        ```
         - clk   (input)  goes to clk_i          (WEST side of pad ring)
