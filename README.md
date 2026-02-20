@@ -17,7 +17,7 @@ Table of contents
 
 1. [Description of the project](#description-of-the-project)
 2. [Block diagram of the 32-bit floating point adder](#block-diagram-of-the-32-bit-floating-point-adder)
-3. [Simulations with Quartus Prime Lite Edition](#simulations-with-quartus-prime-lite-edition)
+3. [Simulations with Quartus Prime Lite Edition 25.1](#simulations-with-quartus-prime-lite-edition-25-1)
 4. [Integration for mock tapeout](#integration-for-mock-tapeout)
 5. [Report of the entire chip flow performed with Librelane](#report-of-the-entire-chip-flow-performed-with-librelane)
 6. [Static Timing Analysis after Place and Route](#static-timing-analysis-after-place-and-route)
@@ -73,8 +73,8 @@ Block diagram of the 32-bit floating point adder
 ================================================
 ![architecture](docs/img/fp32adder_serial_block_diagram.png)
 
-Simulations with Quartus Prime Lite Edition
-===========================================
+Simulations with Quartus Prime Lite Edition 25.1
+================================================
 ![architecture](docs/img/fp32adder_serial_simulation-1of2.png)
 Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder (1 of 2)
 
