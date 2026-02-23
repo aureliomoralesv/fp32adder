@@ -155,8 +155,9 @@ You may check the README located at [docs](https://github.com/aureliomoralesv/fp
         ```
         make fp32adder VIEW_RESULTS=1
         ```
-The following image depicts the result of this last command showing the implemented design without the pad ring integration
+The following image depicts the result of this last command showing the implemented design without the pad ring integration.
 ![architecture](docs/img/fp32adder_serial_no_padring-2026-01-24.png)
+
 View of the design without pad ring integration using OpenRoad
 
 View of the design with Openroad after pad ring integration
@@ -193,6 +194,6 @@ You may check the README located at [docs](https://github.com/aureliomoralesv/fp
         ```
         make view_results
         ```
-The following image depicts the result of this last command showing the implemented design with the pad ring integration
+The following image depicts the result of this last command showing the implemented design with the pad ring integration.
 ![architecture](docs/img/fp32adder_serial_with_padring_zoom-2026-01-26.png)
 Zoom view of the placed design and integrated with the pad ring using OpenRoad
