@@ -109,10 +109,10 @@ Report for manufacturability (Antenna, DRC and LVS) of the design
 View of the design with Openroad before pad ring integration
 ============================================================
 You may check the README located at [docs](https://github.com/aureliomoralesv/fp32adder/tree/b76bced529d6ac0d960cf93f927288e4b94851ef/docs) folder for specific details. The following steps show the "Classic" flow of the design using Librelane before the pad ring integration:
-    - Create the subdirectory "fp32adder" for the design project under the unic_cass_wrapper_user_project/ directory with Librelane configuration file (config.json). You can use the [user_project_example](https://github.com/aureliomoralesv/fp32adder/tree/3a5ff03c90c2172e87b65fef938de0074d8e93b0/unic_cass_wrapper_user_project/user_project_example) as a template.
-    - Provide the RTL Verilog files of the design for Librelane inside the unic_cass_wrapper_user_project/fp32adder/src/ and modify them accordingly using the initial lines of user_project_example.v in unic_cass_wrapper_user_project/user_project_example/src/ and related to power and ground, and for all instantiations of your modules.
-    - In order to avoid problems of integrating the design into the UNIC-CASS wrapper, specially if the design uses less inputs than 17 (wires ui_PAD2CORE) and less outputs than 17 (wires uo_CORE2PAD), and the use of wires clk_i (for the clock) and rst_ni (for the reset), use the user_project_example.v as a template to be your new and fake "top level" design file for the project, and just modify the instantiation of the real "top level" of the design. In our case the fake "top level" is user_project.v that wraps the real "top level" design, which is add_float.v
-    - Extra outputs are tied to "1", and extra inputs are tied to dummy signal, in order to avoid problems. The following lines shows the contents of user_project.v as a fake "top level" design that instantiate add_float.v
+1. Create the subdirectory "fp32adder" for the design project under the unic_cass_wrapper_user_project/ directory with Librelane configuration file (config.json). You can use the [user_project_example](https://github.com/aureliomoralesv/fp32adder/tree/3a5ff03c90c2172e87b65fef938de0074d8e93b0/unic_cass_wrapper_user_project/user_project_example) as a template.
+2. Provide the RTL Verilog files of the design for Librelane inside the unic_cass_wrapper_user_project/fp32adder/src/ and modify them accordingly using the initial lines of user_project_example.v in unic_cass_wrapper_user_project/user_project_example/src/ and related to power and ground, and for all instantiations of your modules.
+3. In order to avoid problems of integrating the design into the UNIC-CASS wrapper, specially if the design uses less inputs than 17 (wires ui_PAD2CORE) and less outputs than 17 (wires uo_CORE2PAD), and the use of wires clk_i (for the clock) and rst_ni (for the reset), use the user_project_example.v as a template to be your new and fake "top level" design file for the project, and just modify the instantiation of the real "top level" of the design. In our case the fake "top level" is user_project.v that wraps the real "top level" design, which is add_float.v
+4. Extra outputs are tied to "1", and extra inputs are tied to dummy signal, in order to avoid problems. The following lines shows the contents of user_project.v as a fake "top level" design that instantiate add_float.v
 
         ``` verilog
         module user_project(
@@ -145,13 +145,13 @@ You may check the README located at [docs](https://github.com/aureliomoralesv/fp
         );
         endmodule
         ```
-    - Build your design GDSII.
+5. Build your design GDSII.
 
         ```
         cd unic_cass_wrapper_user_project/
         make fp32adder
         ```
-    - Finally, you can explore the results:
+6. Finally, you can explore the results:
         ```
         make fp32adder VIEW_RESULTS=1
         ```
@@ -162,8 +162,8 @@ View of the design without pad ring integration using OpenRoad
 View of the design with Openroad after pad ring integration
 ===========================================================
 You may check the README located at [docs](https://github.com/aureliomoralesv/fp32adder/tree/b76bced529d6ac0d960cf93f927288e4b94851ef/docs) folder for specific details. The following steps show the "Chip" flow of the design using Librelane for the pad ring integration:
-    - Instantiate the design in [user_project_wrapper.v](https://github.com/aureliomoralesv/fp32adder/blob/ee3240588e51683d62ce7d9f8f045b8e87ded665/unic_cass_wrapper/src/user_project_wrapper.sv). You must **only modify the module name and the instance name**. **Do not change the instance pin connections**, as they are required for correct integration with the unic_cass_wrapper.
-    - Update the macros in the [config.json](https://github.com/aureliomoralesv/fp32adder/blob/ee3240588e51683d62ce7d9f8f045b8e87ded665/unic_cass_wrapper/config.json) file. Make sure to provide:
+1. Instantiate the design in [user_project_wrapper.v](https://github.com/aureliomoralesv/fp32adder/blob/ee3240588e51683d62ce7d9f8f045b8e87ded665/unic_cass_wrapper/src/user_project_wrapper.sv). You must **only modify the module name and the instance name**. **Do not change the instance pin connections**, as they are required for correct integration with the unic_cass_wrapper.
+2. Update the macros in the [config.json](https://github.com/aureliomoralesv/fp32adder/blob/ee3240588e51683d62ce7d9f8f045b8e87ded665/unic_cass_wrapper/config.json) file. Make sure to provide:
         - your design name (in this case, user_project_wrapper)
         - GDS path
         - LEF path
@@ -171,7 +171,7 @@ You may check the README located at [docs](https://github.com/aureliomoralesv/fp
         - LIB path
         - SPEF path
         - Module instance with the desired position (the position is up to you) 
-    - According to the instantiation of add_float.v (real top of hierarchy of the entire design), the following signals are connected to the following inputs or outputs:
+3. According to the instantiation of add_float.v (real top of hierarchy of the entire design), the following signals are connected to the following inputs or outputs:
        ```
         - clk   (input)  goes to clk_i          (WEST side of pad ring)
         - reset (input)  goes to rst_ni         (WEST side of pad ring)
@@ -183,12 +183,12 @@ You may check the README located at [docs](https://github.com/aureliomoralesv/fp
         - under (output) goes to uo_CORE2PAD[3] (EAST side of pad ring)
         - done  (output) goes to uo_CORE2PAD[4] (EAST side of pad ring)
        ```
-    - Harden the user_project_wrapper with the modules:
+4. Harden the user_project_wrapper with the modules:
         ```
         cd unic_cass_wrapper
         make
         ```
-    - Finally, you can explore the results.
+5. Finally, you can explore the results.
         ```
         make view_results
         ```
