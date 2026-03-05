@@ -84,7 +84,7 @@ Behavioral simulation on Cyclone V SoC FPGA of 32-bit floating point adder using
 Integration for mock tapeout
 ============================
 
-This part of the report was already included as part of the first milestone on 27/01/2026 in the README located at [docs](https://github.com/aureliomoralesv/fp32adder/tree/b76bced529d6ac0d960cf93f927288e4b94851ef/docs) folder. The initial steps for the integration of the digital design project to the pad ring is based on the UNIC-CASS Wrapper as an open-source chip integration template designed to standardize and simplify the integration of UNIC-CASS circuit designs for fabrication using the IHP open-source PDK. Please, read that report, which include all the steps and customization performed for the integration of the design to the initial pad ring for the mock tapeout. 
+This part of the report was already included as part of the first milestone on 27/01/2026 in the README located at [docs](https://github.com/aureliomoralesv/fp32adder/tree/b76bced529d6ac0d960cf93f927288e4b94851ef/docs) folder. The initial steps for the integration of the digital design project to the pad ring is based on the UNIC-CASS Wrapper as an open-source chip integration template designed to standardize and simplify the integration of UNIC-CASS circuit designs for fabrication using the IHP open-source PDK. Please, read that report, which includes all the steps and customization performed for the integration of the design to the initial pad ring for the mock tapeout. 
 
 The source Verilog design files for the "Classic Flow" using Librelane (without the pad ring integration) are located at [src](https://github.com/aureliomoralesv/fp32adder/tree/b8571a2f5f8cd6c161ebd30f408a68f6af07dec4/unic_cass_wrapper_user_project/fp32adder/src) folder, and, the source SystemVerilog file for the integration of the entire design with the pad ring, i.e. the "Chip Flow" using Librelane is located at [src](https://github.com/aureliomoralesv/fp32adder/tree/b8571a2f5f8cd6c161ebd30f408a68f6af07dec4/unic_cass_wrapper/src) folder. The SystemVerilog file may be viewed [here](https://github.com/aureliomoralesv/fp32adder/blob/b8571a2f5f8cd6c161ebd30f408a68f6af07dec4/unic_cass_wrapper/src/user_project_wrapper.sv)
 
@@ -93,10 +93,15 @@ Also, inside the [docs](https://github.com/aureliomoralesv/fp32adder/tree/b76bce
 Report of the entire chip flow performed with Librelane
 =======================================================
 
-The following image shows all the folders generated when the "chip flow" was performed using Librelane. The entire flow performs the logic synthesis and optimizations, mapping, place and route, timing constraints analysis using the Synopsys Design Constraint (*sdc) file, static timing analysis after place and route, design rule checking (DRC), and layout versus schematic (LVS) check for manufacturing and pad ring integration, where the error.log file shows no errors, while the warnings in the warning.log are related with no parasitics extraction found at corners of nom_fast_1p32V_m40C and nom_slow_1p08V_125C models and a warning related to 'VSRC_LOC_FILES' that was not given a value, which may make the results of IR drop analysis inaccurate. But, since at this stage we are not integrating a top-level chip for manufacture, we may ignore the last warning.
+The following image shows all the folders generated when the "Chip Flow" was performed using Librelane. The entire flow performs the logic synthesis and optimizations, mapping, place and route, timing constraints analysis using the Synopsys Design Constraint (*sdc) file, static timing analysis after place and route, design rule checking (DRC), and layout versus schematic (LVS) check for manufacturing and pad ring integration, where the error.log file shows no errors, while the warnings in the warning.log are related to no parasitics extraction found at corners of nom_fast_1p32V_m40C and nom_slow_1p08V_125C models and a warning related to 'VSRC_LOC_FILES' that was not given a value, which may make the results of IR drop analysis inaccurate. But, since at this stage we are not integrating a top-level chip for manufacture, we may ignore the last warning.
 
 ![architecture](docs/img/fp32adder_serial_entire_chip_flow.png)
-Image that captures the entire chip flow performed with Librelane 
+Image that captures all generated folders an files after performing the entire chip flow with Librelane 
+
+The following image shows the contents of the warning.log after completing the "Chip Flow" where you can see the warnings related to no parasitics extraction found at corners of nom_fast_1p32V_m40C and nom_slow_1p08V_125C models and a warning related to 'VSRC_LOC_FILES' that was not given a value.
+
+![architecture](docs/img/fp32adder_serial_entire_chip_flow_warning_log.png)
+Image that captures the contents of the "warning.log" after performing the entire chip flow with Librelane 
 
 Static Timing Analysis after Place and Route
 ============================================
