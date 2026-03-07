@@ -23,7 +23,8 @@ Table of contents
 6. [Static Timing Analysis after Place and Route](#static-timing-analysis-after-place-and-route)
 7. [Report for Manufacturability](#report-for-manufacturability)
 8. [View of the design with Openroad before pad ring integration](#view-of-the-design-with-openroad-before-pad-ring-integration)
-9. [View of the design with Openroad after pad ring integration](#view-of-the-design-with-openroad-after-pad-ring-integration)
+9. [Area of the design with Klayout before pad ring integration] (#area-of-the-design-with-klayout-before-pad-ring-integration)
+10. [View of the design with Openroad after pad ring integration](#view-of-the-design-with-openroad-after-pad-ring-integration)
 
 
 Description of the project 
@@ -167,7 +168,9 @@ The following image depicts the result of this last command showing the implemen
 ![architecture](docs/img/fp32adder_serial_no_padring-2026-01-24.png)
 View of the design without pad ring integration using OpenRoad
 
-In order to determine the area of the design without the pad ring, we used the Klayout tool, and we opened the "user_project.gds" located at the "final/gds/" folder inside the "unic_cass_wrapper_user_project/fp32adder/" generated after entirely running the "Classic Flow" with Librelane. We created a custom "Calculate Area" button in Klayout toolbar using a Python script. This Python scripts calculates the bounding box area of the current top-level cell and displays the area in a popup message.
+Area of the design with Klayout before pad ring integration
+===========================================================
+In order to determine the area of the design without the pad ring, we used the Klayout tool, and we opened the "user_project.gds" located at the "final/gds/" folder inside the "unic_cass_wrapper_user_project/fp32adder/" generated after running the "Classic Flow" with Librelane. We created a custom "Calculate Area" button in Klayout toolbar using a Python script. This Python scripts calculates the bounding box area of the current top-level cell and displays the area in a popup message.
 
         import pya
         
@@ -201,7 +204,14 @@ In order to determine the area of the design without the pad ring, we used the K
         # "toolbar" is the standard identifier for the main icon bar
         menu.insert_item("@toolbar.end", "calc_area_button", action)
 
-To install this script, follow these instructions: a) Open the design (*.gds) with Klayout; b) open the Macro Editor by selecting Macros > Macro Development; c) Create a New Macro by clicking the + (New) button and selecting Python; d) give the macro a name (e.g. calc_area.py); e) paste & save the srcipt; f) enable the "Run on Startup" by selecting the properties of the script and clicking the box "Run on startup"; g) Restart the application, so the next time you open Klayout, a new button "Calculate Area" wil appear at the end of the toolbar. 
+To install this script, follow these instructions: 
+1. Open the design (*.gds) with Klayout; 
+2. Open the Macro Editor by selecting Macros > Macro Development; 
+3. Create a New Macro by clicking the + (New) button and selecting Python; 
+4. Give the macro a name (e.g. calc_area.py); 
+5. Paste & Save the script; 
+6. Enable the "Run on Startup" by selecting the properties of the script and clicking the box "Run on startup"; 
+7. Restart the application, so the next time you open Klayout, a new button "Calculate Area" wil appear at the end of the toolbar. 
 
 The following image depicts the result of creating the button in the Klayout toolbar that calculates the area of the design without the pad ring. According to this image, the width of the design is 205.335 µm, while the height of the design is 225.055 µm. Then, the area of the design without pad ring is 46006.33 µm2 or 4.600633x10(-2) mm2 which is less than 0.1 mm2.
 
