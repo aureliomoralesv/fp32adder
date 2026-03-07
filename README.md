@@ -170,7 +170,7 @@ View of the design without pad ring integration using OpenRoad
 
 Area of the design with Klayout before pad ring integration
 ===========================================================
-In order to determine the area of the design without the pad ring, we used the Klayout tool, and we opened the "user_project.gds" located at the "final/gds/" folder inside the "unic_cass_wrapper_user_project/fp32adder/" generated after running the "Classic Flow" with Librelane. We created a custom "Calculate Area" button in Klayout toolbar using a Python script. This Python scripts calculates the bounding box area of the current top-level cell and displays the area in a popup message.
+In order to determine the area of the design without the pad ring integration, we used the Klayout tool, and we opened the "user_project.gds" located at the "final/gds/" folder inside the "unic_cass_wrapper_user_project/fp32adder/" generated after running the "Classic Flow" with Librelane. We created a custom "Calculate Area" button in Klayout toolbar using a Python script. This Python script calculates the bounding box area of the current top-level cell and displays the area in a popup message.
 
         import pya
         
