@@ -213,7 +213,7 @@ To install this script, follow these instructions:
 6. Enable the "Run on Startup" by selecting the properties of the script and clicking the box "Run on startup"; 
 7. Restart the application, so the next time you open Klayout, a new button "Calculate Area" wil appear at the end of the toolbar. 
 
-The following image depicts the result of creating the button in the Klayout toolbar that calculates the area of the design without the pad ring. According to this image, the width of the design is 205.335 µm, while the height of the design is 225.055 µm. Then, the area of the design without pad ring is 46006.33 µm2 or 4.600633x10(-2) mm2 which is less than 0.1 mm2.
+The following image depicts the result of creating the button in the Klayout toolbar that calculates the area of the design without the pad ring. According to this image, the width of the design is 205.335 µm, while the height of the design is 224.055 µm. Then, the area of the design without pad ring is 46006.33 µm2 or 4.600633x10(-2) mm2 or 0.046006 mm2, which is less than 0.1 mm2.
 
 ![architecture](docs/img/fp32adder_serial_klayout_total_area_no_pads.png)
 Calculation of the area of top-level cell design without pad ring using Klayout
