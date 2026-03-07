@@ -121,7 +121,7 @@ The resources involved in the design may be observed after logic synthesis with 
     Chip area for module '\user_project': 18781.119000
     of which used for sequential elements: 10042.704000 (53.47%)
 
-According to this list, there are 205 DFFs, so the input clock and asynchronous reset should have a fan-in of at least 205, if there is a direct connection to all DFFs in the design. Not sure how this is implemented in a VLSI design, because, generally the clock and reset are global signals in a FPGA, and these signals propagate to all DFFs through a tree-based network, that guarantees a very low clock delay, skew and jitter, and very low recovery and removal times related to the asynchronous reset signal. The area reported in the stat.rpt file, expressed in µm2 is not the final area of the design, which is calculated in a separate section of this report.
+According to this list, there are 205 DFFs, so the input clock and asynchronous reset should have a fan-in of at least 205, if there is a direct connection to all DFFs in the design. Not sure how this is implemented in a VLSI design, because, generally the clock and reset are global signals in a FPGA, and these signals propagate to all DFFs through a tree-based network, that guarantees a very low clock delay, skew and jitter, and very low recovery and removal times related to the asynchronous reset signal. The area reported in the stat.rpt file, expressed in µm2 is not the final area of the design, which is calculated in a separate section of this report. 
 
 Simulations with Quartus Prime Lite Edition
 ===========================================
