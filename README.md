@@ -169,7 +169,6 @@ View of the design without pad ring integration using OpenRoad
 
 In order to determine the area of the design without the pad ring, we used the Klayout tool, and we open the "user_project.gds" located at the "final/gds/" folder inside the "unic_cass_wrapper_user_project/fp32adder/" generated after entirely running the "Classic Flow" with Librelane. We created a custom "Calculate Area" button in Klayout toolbar using a Python script. This Python scripts calculates the bounding box area of the current top-level cell and displays the area in a popup message.
 
-        ``` pyhton
         import pya
         
         def calculate_top_cell_area()
@@ -201,12 +200,11 @@ In order to determine the area of the design without the pad ring, we used the K
         #add the button to the toolbar
         # "toolbar" is the standard identifier for the main icon bar
         menu.insert_item("@toolbar.end", "calc_area_button", action)
-        ``` 
 
-And the following image depicts the result of creating the button in the Klayout toolbar that calculates the area of the design withou the pad ring. According to this image, the width of the design is 205.335 um, while the height of the design is 225.055 um. Then, the area of the design without pad ring is 46006.33 um2 or 4.600633x10(-2) mm2
+And the following image depicts the result of creating the button in the Klayout toolbar that calculates the area of the design withou the pad ring. According to this image, the width of the design is 205.335 um, while the height of the design is 225.055 um. Then, the area of the design without pad ring is 46006.33 um2 or 4.600633x10(-2) mm2 which is less than 0.1 mm2
 
-![architecture](docs/img/fp32adder_serial_klayout_total_area_no_pads.png]
-Calculation of the area of top-level cell with out pad ring using Klayout
+![architecture](docs/img/fp32adder_serial_klayout_total_area_no_pads.png)
+Calculation of the area of top-level cell without pad ring using Klayout
 
 View of the design with Openroad after pad ring integration
 ===========================================================
