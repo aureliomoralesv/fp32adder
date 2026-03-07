@@ -72,7 +72,56 @@ also performed using EDA Playground (https://www.edaplayground.com)
 
 Block diagram of the 32-bit floating point adder
 ================================================
+
+The following image shows all the blocks inside the 32-bit floating point adder. Several blocks are based on D flip-flops (DFF), such as REG_A, REG_B, REG_C, EXP_DIF, TEMP, EXPO, MANT, CY, and inside the CONTROL unit. The rest of blocks are based on combinational logic gates, such as SMALL_ALU, BIG_ALU, and also inside the CONTROL unit.
+
 ![architecture](docs/img/fp32adder_serial_block_diagram.png)
+
+The resources involved in the design may be observed after logic synthesis with Yosys tool. The following list of resources is taken from the "stat.rpt" file generated after logic synthesis, located at unic_cass_wrapper_user_project/fp32adder/runs/user_project_run/06-yosys-synthesis/reports/ folder.
+
+=== user_project ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1096        - wires
+     1128        - wire bits
+      208        - public wires
+      240        - public wire bits
+        4        - ports
+       36        - port bits
+     1109 1.88E+04 cells
+        6   76.205   sg13g2_a21o_1
+       88  798.336   sg13g2_a21oi_1
+        6   87.091   sg13g2_a221oi_1
+       41  444.793   sg13g2_a22oi_1
+       18  163.296   sg13g2_and2_1
+        3   38.102   sg13g2_and3_1
+        1   14.515   sg13g2_and4_1
+        5   36.288   sg13g2_buf_1
+      205    1E+04   sg13g2_dfrbpq_1
+      246 1.34E+03   sg13g2_inv_1
+      107 1.94E+03   sg13g2_mux2_1
+       25   181.44   sg13g2_nand2_1
+       26  235.872   sg13g2_nand2b_1
+        8   72.576   sg13g2_nand3_1
+        2   25.402   sg13g2_nand3b_1
+        3   32.659   sg13g2_nand4_1
+       51  370.138   sg13g2_nor2_1
+       34  308.448   sg13g2_nor2b_1
+       13  117.936   sg13g2_nor3_1
+        6   65.318   sg13g2_nor4_1
+       78  707.616   sg13g2_o21ai_1
+       39  353.808   sg13g2_or2_1
+        1   14.515   sg13g2_or4_1
+       13   94.349   sg13g2_tiehi
+       40  580.608   sg13g2_xnor2_1
+       44  638.669   sg13g2_xor2_1
+
+   Chip area for module '\user_project': 18781.119000
+     of which used for sequential elements: 10042.704000 (53.47%)
+
+According to this list, there are 205 DFFs, so the input clock and asynchronous reset should have a fan-in of at least 205, if there is a direct connection to all DFFs in the design. Not sure how this is implemented in a VLSI design, because, generally the clock and reset are global signals in a FPGA, and these signals propagate to all DFFs through a tree-based network, that guarantees a very low clock delay, skew and jitter, and very low recovery and removal times related to the asynchronous reset signal. The area reported in the stat.rpt file, expressed in µm2 is not the final area of the design, which is calculated in a separate section of this report.
 
 Simulations with Quartus Prime Lite Edition
 ===========================================
