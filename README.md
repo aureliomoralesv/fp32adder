@@ -23,7 +23,7 @@ Table of contents
 6. [Static Timing Analysis after Place and Route](#static-timing-analysis-after-place-and-route)
 7. [Report for Manufacturability](#report-for-manufacturability)
 8. [View of the design with Openroad before pad ring integration](#view-of-the-design-with-openroad-before-pad-ring-integration)
-9. [Area of the design with Klayout before pad ring integration] (#area-of-the-design-with-klayout-before-pad-ring-integration)
+9. [Area of the design with Klayout before pad ring integration](#area-of-the-design-with-klayout-before-pad-ring-integration)
 10. [View of the design with Openroad after pad ring integration](#view-of-the-design-with-openroad-after-pad-ring-integration)
 
 
